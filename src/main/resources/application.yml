@@ -1,0 +1,19 @@
+server:
+  port: 9090
+  
+spring:
+  redis:
+    host: 10.10.27.56
+    port: 6379
+    password: #없으면 공백 
+    
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+    
+grpc:
+  client:
+    test:
+      address: static://10.10.27.56:5551
+     #address: static://127.0.0.1:9095 
+      negotiationtype: plaintext
