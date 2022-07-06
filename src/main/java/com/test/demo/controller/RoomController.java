@@ -34,6 +34,7 @@ public class RoomController {
 	@ApiOperation(value="채팅방 리스트", notes = "채팅방 리스트 가져오기", response = List.class)
 	@GetMapping
 	public List<RoomVO> getRooms() {
+		logger.info("RoomController.getRooms()");
 		List<RoomVO> list = roomService.getRoomList();
 		return list;
 	}
@@ -42,6 +43,7 @@ public class RoomController {
 	@ApiOperation(value="채팅방 생성", notes="채팅방 생성하기", response = String.class)
 	@PostMapping(produces = "application/json")
 	public String postRooms(@RequestBody RoomVO roomVo) {
+		logger.info("RoomController.postRooms()");
 		return roomService.createRoom(roomVo);
 	}
 	
@@ -49,12 +51,14 @@ public class RoomController {
 	@ApiOperation(value="채팅방 정보", notes="채팅방 정보 상세보기", response = RoomVO.class)
 	@GetMapping(value = "/{id}")
 	public RoomVO getRoomInfo(@PathVariable(value="id") String roomId) {
+		logger.info("RoomController.getRoomInfo()");
 		return roomService.getRoomInfo(roomId);
 	}
 	
 	@ApiOperation(value="채팅방 삭제", notes="채팅방 삭제하기",response = String.class)
 	@DeleteMapping(value = "/{id}")
 	public String deleteRoom(@PathVariable(value="id") String roomId) {
+		logger.info("RoomController.deleteRoom()");
 		return roomService.deleteRoom(roomId);
 	}
 	
@@ -62,6 +66,7 @@ public class RoomController {
 	@ApiOperation(value="채팅방 수정", notes="채팅방 수정하기",response = String.class)
 	@PutMapping(value = "/{id}")
 	public String updateRoom(@PathVariable(value="id") String roomId, @RequestBody RoomVO roomVo) {
+		logger.info("RoomController.updateRoom()");
 		roomVo.setRoomId(roomId);
 		return roomService.updateRoom(roomVo);
 	}

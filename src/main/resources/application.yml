@@ -4,7 +4,7 @@ server:
 spring:
   redis:
     host: 127.0.0.1 #10.10.27.56
-    port: 6000
+    port: 6379
     password: #없으면 공백 
     
   mvc:
@@ -17,3 +17,8 @@ grpc:
       address: static://10.10.27.56:5551
      #address: static://127.0.0.1:9095 
       negotiationtype: plaintext
+      
+logging:
+  level:
+    root: info
+  
