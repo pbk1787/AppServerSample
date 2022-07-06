@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
 
 	@RequestMapping("/")
-	public void test(HttpServletRequest request, HttpServletResponse response) {
+	public void index(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out;
@@ -42,6 +42,35 @@ public class TestController {
 					+ "    <h3>HTML의 탄생</h3>\n"
 					+ "    <p>HTML은 <strong>Hyper Text Markup Language</strong>라는 용어의 약자로서 물리학자 <strong>팀 버너스리</strong>가 1990년에 HTTP, URL,\n"
 					+ "        브라우저와 함께 개발했습니다. 팀 버너스리는 인터넷의 기반을 닦은 여러 공로로 웹의 아버지라고 불리는 인물 중 하나입니다.</p>\n"
+					+ "\n"
+					+ "</body>\n"
+					+ "\n"
+					+ "</html>");
+			out.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping("/test")
+	public void test(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out;
+			out = response.getWriter();
+			out.println("<html>\n"
+					+ "\n"
+					+ "<head>\n"
+					+ "    <meta charset=\"UTF-8\">\n"
+					+ "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+					+ "    <title>Home 테스트 페이지</title>\n"
+					+ "</head>\n"
+					+ "\n"
+					+ "<body>\n"
+					+ "        <h1>TEST PAGE</h1>\n"
+					+ "\n"
+					+ "    <p>hello world~ </p>\n"
 					+ "\n"
 					+ "</body>\n"
 					+ "\n"

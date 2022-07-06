@@ -3,8 +3,8 @@ server:
   
 spring:
   redis:
-    host: 10.10.27.56
-    port: 6379
+    host: 127.0.0.1 #10.10.27.56
+    port: 6000
     password: #없으면 공백 
     
   mvc:
